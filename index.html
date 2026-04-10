@@ -1,745 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U-Haul Trip Planner: Ruth, MS to Peyton, CO</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U-Haul Trip Planner: Ruth, MS to Peyton, CO</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
 
-        header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+    header {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
 
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.95;
+    }
 
-        .nav-tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 3px solid #dee2e6;
-        }
+    .nav-tabs {
+      display: flex;
+      background: #f8f9fa;
+      border-bottom: 3px solid #dee2e6;
+    }
 
-        .nav-tab {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            background: #f8f9fa;
-            border: none;
-            font-size: 1.1em;
-            font-weight: 600;
-            color: #495057;
-            transition: all 0.3s;
-        }
+    .nav-tab {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      background: #f8f9fa;
+      border: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #495057;
+      transition: all 0.3s;
+    }
 
-        .nav-tab:hover {
-            background: #e9ecef;
-        }
+    .nav-tab:hover {
+      background: #e9ecef;
+    }
 
-        .nav-tab.active {
-            background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-            margin-bottom: -3px;
-        }
+    .nav-tab.active {
+      background: white;
+      color: #667eea;
+      border-bottom: 3px solid #667eea;
+      margin-bottom: -3px;
+    }
 
-        .tab-content {
-            display: none;
-            padding: 30px;
-            animation: fadeIn 0.5s;
-        }
+    .tab-content {
+      display: none;
+      padding: 30px;
+      animation: fadeIn 0.5s;
+    }
 
-        .tab-content.active {
-            display: block;
-        }
+    .tab-content.active {
+      display: block;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
 
-        .summary-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+    .summary-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
 
-        .summary-card h3 {
-            font-size: 0.9em;
-            opacity: 0.9;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .summary-card h3 {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        .summary-card .value {
-            font-size: 2em;
-            font-weight: bold;
-        }
+    .summary-card .value {
+      font-size: 2em;
+      font-weight: bold;
+    }
 
-        .route-list {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+    .route-list {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
 
-        .route-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 10px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
+    .route-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
 
-        .route-item:hover {
-            transform: translateX(5px);
-        }
+    .route-item:hover {
+      transform: translateX(5px);
+    }
 
-        .route-item .milestone {
-            background: #667eea;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 20px;
-            font-size: 0.9em;
-        }
+    .route-item .milestone {
+      background: #667eea;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 20px;
+      font-size: 0.9em;
+    }
 
-        .route-item .info {
-            flex: 1;
-        }
+    .route-item .info {
+      flex: 1;
+    }
 
-        .route-item .city {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
+    .route-item .city {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
 
-        .route-item .description {
-            color: #666;
-            font-size: 0.95em;
-        }
+    .route-item .description {
+      color: #666;
+      font-size: 0.95em;
+    }
 
-        .fuel-stop {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-left: 5px solid #c7365f;
-        }
+    .fuel-stop {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-left: 5px solid #c7365f;
+    }
 
-        .fuel-stop .milestone {
-            background: #c7365f;
-        }
+    .fuel-stop .milestone {
+      background: #c7365f;
+    }
 
-        .hotel-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: all 0.3s;
-        }
+    .hotel-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: all 0.3s;
+    }
 
-        .hotel-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-        }
+    .hotel-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    }
 
-        .hotel-name {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
+    .hotel-name {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
 
-        .hotel-price {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
+    .hotel-price {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
 
-        .hotel-location {
-            color: #666;
-            font-size: 0.95em;
-        }
+    .hotel-location {
+      color: #666;
+      font-size: 0.95em;
+    }
 
-        .info-box {
-            background: #e7f3ff;
-            border-left: 4px solid #2196F3;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
+    .info-box {
+      background: #e7f3ff;
+      border-left: 4px solid #2196F3;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
 
-        .info-box h3 {
-            color: #2196F3;
-            margin-bottom: 10px;
-        }
+    .info-box h3 {
+      color: #2196F3;
+      margin-bottom: 10px;
+    }
 
-        .warning-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
+    .warning-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
 
-        .warning-box h3 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
+    .warning-box h3 {
+      color: #856404;
+      margin-bottom: 10px;
+    }
 
-        .progress-bar {
-            background: #e9ecef;
-            height: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
+    .progress-bar {
+      background: #e9ecef;
+      height: 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
 
-        .progress-fill {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            transition: width 1s ease;
-        }
+    .progress-fill {
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      transition: width 1s ease;
+    }
 
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 10px 5px;
-        }
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      margin: 10px 5px;
+    }
 
-        button:hover {
-            transform: scale(1.05);
-        }
+    button:hover {
+      transform: scale(1.05);
+    }
 
-        input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            font-size: 1em;
-            margin: 10px 0;
-        }
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      font-size: 1em;
+      margin: 10px 0;
+    }
 
-        .calculator-result {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
+    .calculator-result {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
 
-        .gas-prices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .gas-prices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-        .gas-price-card {
-            background: white;
-            border: 2px solid #dee2e6;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .gas-price-card {
+      background: white;
+      border: 2px solid #dee2e6;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
 
-        .state-name {
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
+    .state-name {
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 10px;
+    }
 
-        .price {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #333;
-        }
+    .price {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #333;
+    }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8em;
+      }
 
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
 
-            .nav-tab {
-                font-size: 0.9em;
-                padding: 15px 10px;
-            }
-        }
-    </style>
+      .nav-tab {
+        font-size: 0.9em;
+        padding: 15px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚚 U-Haul Trip Planner</h1>
-            <p>Ruth, MS → Peyton, CO</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>🚚 U-Haul Trip Planner</h1>
+      <p>Ruth, MS → Peyton, CO</p>
+    </header>
 
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab('overview')">📊 Overview</button>
-            <button class="nav-tab" onclick="showTab('route')">🗺️ Route</button>
-            <button class="nav-tab" onclick="showTab('hotels')">🏨 Hotels</button>
-            <button class="nav-tab" onclick="showTab('tracker')">📍 Tracker</button>
-        </div>
-
-        <div id="overview" class="tab-content active">
-            <h2>Trip Summary</h2>
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <h3>Total Distance</h3>
-                    <div class="value">1,400 mi</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Drive Time</h3>
-                    <div class="value">22-24 hrs</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Fuel Cost</h3>
-                    <div class="value">$521</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Fill-ups Needed</h3>
-                    <div class="value">2</div>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <h3>🚛 Vehicle Details</h3>
-                <p><strong>Type:</strong> 26-foot U-Haul Truck</p>
-                <p><strong>Tank Capacity:</strong> 60 gallons</p>
-                <p><strong>Fuel Efficiency:</strong> 10 MPG</p>
-                <p><strong>Cargo Weight:</strong> 2,000 lbs (tightly packed boxes and furniture)</p>
-                <p><strong>Fuel Type:</strong> Regular Unleaded</p>
-            </div>
-
-            <div class="warning-box">
-                <h3>⚠️ Important Notes</h3>
-                <p>• Plan for 2 overnight stays or split into 2 very long days (11 hours each)</p>
-                <p>• Recommended overnight stop: <strong>Amarillo, TX</strong> (perfect halfway point)</p>
-                <p>• Gas prices vary by state - see gas prices in Route tab</p>
-                <p>• Budget hotels available in Amarillo for $50-90/night</p>
-                <p>• Allow extra time for food, rest stops, and potential traffic</p>
-            </div>
-
-            <h3>Recommended Route</h3>
-            <div class="route-list">
-                <p style="padding: 10px; font-weight: 600;">I-59 N → I-20 W → I-30 W → I-40 W → I-25 N</p>
-            </div>
-
-            <h3>Current Gas Prices (April 2026)</h3>
-            <div class="gas-prices">
-                <div class="gas-price-card">
-                    <div class="state-name">Mississippi</div>
-                    <div class="price">$3.75</div>
-                </div>
-                <div class="gas-price-card">
-                    <div class="state-name">Louisiana</div>
-                    <div class="price">$3.79</div>
-                </div>
-                <div class="gas-price-card">
-                    <div class="state-name">Texas</div>
-                    <div class="price">$3.77</div>
-                </div>
-                <div class="gas-price-card">
-                    <div class="state-name">Oklahoma</div>
-                    <div class="price">$3.27</div>
-                </div>
-                <div class="gas-price-card">
-                    <div class="state-name">New Mexico</div>
-                    <div class="price">$4.01</div>
-                </div>
-                <div class="gas-price-card">
-                    <div class="state-name">Colorado</div>
-                    <div class="price">$3.82</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="route" class="tab-content">
-            <h2>Detailed Route & Fuel Stops</h2>
-
-            <div class="route-list">
-                <div class="route-item">
-                    <div class="milestone">START</div>
-                    <div class="info">
-                        <div class="city">Ruth, MS</div>
-                        <div class="description">3231 Mallalieu Dr SE - Starting Point</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">70 mi</div>
-                    <div class="info">
-                        <div class="city">Jackson, MS</div>
-                        <div class="description">Take I-20 West</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">115 mi</div>
-                    <div class="info">
-                        <div class="city">Vicksburg, MS</div>
-                        <div class="description">Continue on I-20 West</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">230 mi</div>
-                    <div class="info">
-                        <div class="city">Shreveport, LA</div>
-                        <div class="description">Cross into Louisiana</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">430 mi</div>
-                    <div class="info">
-                        <div class="city">Dallas, TX</div>
-                        <div class="description">Major city - Continue west on I-30</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">465 mi</div>
-                    <div class="info">
-                        <div class="city">Fort Worth, TX</div>
-                        <div class="description">Continue on I-30/I-20 then US-287</div>
-                    </div>
-                </div>
-
-                <div class="route-item fuel-stop">
-                    <div class="milestone">⛽ 600 mi</div>
-                    <div class="info">
-                        <div class="city">FUEL STOP #1 - Amarillo, TX Area</div>
-                        <div class="description">Fill up: ~60 gallons | Cost: ~$223 | OVERNIGHT STOP RECOMMENDED</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">700 mi</div>
-                    <div class="info">
-                        <div class="city">Amarillo, TX (RECOMMENDED OVERNIGHT)</div>
-                        <div class="description">Perfect halfway point - I-40 West. Budget hotels available!</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">875 mi</div>
-                    <div class="info">
-                        <div class="city">Tucumcari, NM</div>
-                        <div class="description">I-40 West continues through New Mexico</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">1055 mi</div>
-                    <div class="info">
-                        <div class="city">Albuquerque, NM</div>
-                        <div class="description">Take I-25 North at "Big I" interchange</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">1110 mi</div>
-                    <div class="info">
-                        <div class="city">Santa Fe, NM</div>
-                        <div class="description">Continue on I-25 North</div>
-                    </div>
-                </div>
-
-                <div class="route-item fuel-stop">
-                    <div class="milestone">⛽ 1200 mi</div>
-                    <div class="info">
-                        <div class="city">FUEL STOP #2 - Raton, NM / Trinidad, CO</div>
-                        <div class="description">Fill up: ~60 gallons | Cost: ~$223 | 200 miles to destination</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">1265 mi</div>
-                    <div class="info">
-                        <div class="city">Trinidad, CO</div>
-                        <div class="description">Welcome to Colorado!</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">1330 mi</div>
-                    <div class="info">
-                        <div class="city">Pueblo, CO</div>
-                        <div class="description">Continue on I-25 North</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">1375 mi</div>
-                    <div class="info">
-                        <div class="city">Colorado Springs, CO</div>
-                        <div class="description">Near final destination</div>
-                    </div>
-                </div>
-
-                <div class="route-item">
-                    <div class="milestone">🏁 1400 mi</div>
-                    <div class="info">
-                        <div class="city">Peyton, CO - DESTINATION!</div>
-                        <div class="description">10231 Hidden Park Way - You made it!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="hotels" class="tab-content">
-            <h2>🏨 Recommended Overnight Stop: Amarillo, TX</h2>
-
-            <div class="info-box">
-                <h3>Why Amarillo?</h3>
-                <p><strong>Perfect halfway point:</strong> Approximately 700 miles from Ruth, MS and 700 miles to Peyton, CO</p>
-                <p><strong>Convenient location:</strong> Right off I-40 with many affordable hotel options</p>
-                <p><strong>Amenities:</strong> Restaurants, gas stations, and attractions nearby</p>
-            </div>
-
-            <h3>Budget-Friendly Hotels</h3>
-
-            <div class="hotel-card">
-                <div class="hotel-name">Hotel Panhandle TX I-40</div>
-                <div class="hotel-price">$50-70/night</div>
-                <div class="hotel-location">📍 Just off I-40, 30 miles NE of Amarillo<br>
-                ✓ Pet-friendly ✓ Free WiFi ✓ Basic amenities</div>
-            </div>
-
-            <div class="hotel-card">
-                <div class="hotel-name">Atrea Inn Amarillo</div>
-                <div class="hotel-price">$57-75/night</div>
-                <div class="hotel-location">📍 2035 Paramount Blvd, Amarillo<br>
-                ✓ Close to I-40 ✓ Good reviews ✓ Clean rooms</div>
-            </div>
-
-            <div class="hotel-card">
-                <div class="hotel-name">Motel 6 Amarillo West</div>
-                <div class="hotel-price">$60-80/night</div>
-                <div class="hotel-location">📍 2032 Paramount Blvd, Amarillo<br>
-                ✓ Pet-friendly ✓ Kids stay free ✓ Free morning coffee ✓ Pool</div>
-            </div>
-
-            <div class="hotel-card">
-                <div class="hotel-name">Sleep Inn & Suites West Medical Center</div>
-                <div class="hotel-price">$75-90/night</div>
-                <div class="hotel-location">📍 Near I-40 West, Amarillo<br>
-                ✓ Pool & hot tub ✓ Complimentary breakfast ✓ Excellent service</div>
-            </div>
-
-            <h3 style="margin-top: 30px;">Things to See in Amarillo</h3>
-            <div class="info-box">
-                <p><strong>🎨 Cadillac Ranch:</strong> Famous art installation with buried Cadillacs (free to visit!)</p>
-                <p><strong>🥩 Big Texan Steak Ranch:</strong> Home of the famous 72 oz steak challenge</p>
-                <p><strong>🏞️ Palo Duro Canyon State Park:</strong> "Grand Canyon of Texas" - about 30 minutes from Amarillo</p>
-            </div>
-        </div>
-
-        <div id="tracker" class="tab-content">
-            <h2>📍 Trip Progress Tracker</h2>
-
-            <div class="info-box">
-                <h3>How to Use This Tracker</h3>
-                <p>Enter your current mileage from the start point to see your progress, fuel remaining, and next stop information.</p>
-            </div>
-
-            <label for="currentMiles"><strong>Current Miles from Ruth, MS:</strong></label>
-            <input type="number" id="currentMiles" placeholder="Enter miles traveled (0-1400)" min="0" max="1400" value="0">
-            <button onclick="updateProgress()">Update Progress</button>
-            <button onclick="resetProgress()">Reset</button>
-
-            <div id="progressDisplay" style="margin-top: 20px;">
-                <h3>Trip Progress</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar" style="width: 0%">0%</div>
-                </div>
-
-                <div id="progressStats" class="calculator-result">
-                    <p><strong>Miles Traveled:</strong> <span id="milesTraveled">0</span> miles</p>
-                    <p><strong>Miles Remaining:</strong> <span id="milesRemaining">1,400</span> miles</p>
-                    <p><strong>Estimated Fuel Remaining:</strong> <span id="fuelRemaining">60</span> gallons</p>
-                    <p><strong>Miles Until Next Fuel Stop:</strong> <span id="milesUntilFuel">600</span> miles</p>
-                    <p><strong>Next Major City:</strong> <span id="nextCity">Jackson, MS</span></p>
-                    <p><strong>Estimated Fuel Cost Remaining:</strong> $<span id="fuelCostRemaining">521</span></p>
-                </div>
-            </div>
-
-            <div class="warning-box" style="margin-top: 20px;">
-                <h3>⚠️ Safety Reminders</h3>
-                <p>• Take breaks every 2-3 hours or 100-150 miles</p>
-                <p>• Don't let fuel tank drop below 1/4 full</p>
-                <p>• Stay hydrated and well-rested</p>
-                <p>• Check tire pressure and truck condition regularly</p>
-                <p>• Keep emergency contact numbers handy</p>
-            </div>
-        </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showTab(event, 'overview')">📊 Overview</button>
+      <button class="nav-tab" onclick="showTab(event, 'route')">🗺️ Route</button>
+      <button class="nav-tab" onclick="showTab(event, 'hotels')">🏨 Hotels</button>
+      <button class="nav-tab" onclick="showTab(event, 'tracker')">📍 Tracker</button>
     </div>
 
-    <script>
-        function showTab(tabName) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
+    <div id="overview" class="tab-content active">
+      <h2>Trip Summary</h2>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <h3>Total Distance</h3>
+          <div class="value">1,400 mi</div>
+        </div>
+        <div class="summary-card">
+          <h3>Drive Time</h3>
+          <div class="value">22-24 hrs</div>
+        </div>
+        <div class="summary-card">
+          <h3>Fuel Cost</h3>
+          <div class="value">$521</div>
+        </div>
+        <div class="summary-card">
+          <h3>Fill-ups Needed</h3>
+          <div class="value">2</div>
+        </div>
+      </div>
 
-            // Remove active class from all nav tabs
-            const navTabs = document.querySelectorAll('.nav-tab');
-            navTabs.forEach(nav => nav.classList.remove('active'));
+      <div class="info-box">
+        <h3>🚛 Vehicle Details</h3>
+        <p><strong>Type:</strong> 26-foot U-Haul Truck</p>
+        <p><strong>Tank Capacity:</strong> 60 gallons</p>
+        <p><strong>Fuel Efficiency:</strong> 10 MPG</p>
+        <p><strong>Cargo Weight:</strong> 2,000 lbs (tightly packed boxes and furniture)</p>
+        <p><strong>Fuel Type:</strong> Regular Unleaded</p>
+      </div>
 
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
+      <div class="warning-box">
+        <h3>⚠️ Important Notes</h3>
+        <p>• Plan for 2 overnight stays or split into 2 very long days (11 hours each)</p>
+        <p>• Recommended overnight stop: <strong>Amarillo, TX</strong> (perfect halfway point)</p>
+        <p>• Gas prices vary by state - see gas prices in Route tab</p>
+        <p>• Budget hotels available in Amarillo for $50-90/night</p>
+        <p>• Allow extra time for food, rest stops, and potential traffic</p>
+      </div>
 
-            // Add active class to clicked nav tab
-            event.target.classList.add('active');
+      <h3>Recommended Route</h3>
+      <div class="route-list">
+        <p style="padding: 10px; font-weight: 600;">I-59 N → I-20 W → I-30 W → I-40 W → I-25 N</p>
+      </div>
+
+      <h3>Current Gas Prices (April 2026)</h3>
+      <div class="gas-prices">
+        <div class="gas-price-card">
+          <div class="state-name">Mississippi</div>
+          <div class="price">$3.75</div>
+        </div>
+        <div class="gas-price-card">
+          <div class="state-name">Louisiana</div>
+          <div class="price">$3.79</div>
+        </div>
+        <div class="gas-price-card">
+          <div class="state-name">Texas</div>
+          <div class="price">$3.77</div>
+        </div>
+        <div class="gas-price-card">
+          <div class="state-name">Oklahoma</div>
+          <div class="price">$3.27</div>
+        </div>
+        <div class="gas-price-card">
+          <div class="state-name">New Mexico</div>
+          <div class="price">$4.01</div>
+        </div>
+        <div class="gas-price-card">
+          <div class="state-name">Colorado</div>
+          <div class="price">$3.82</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="route" class="tab-content">
+      <h2>Detailed Route & Fuel Stops</h2>
+      <div class="route-list">
+        <div class="route-item">
+          <div class="milestone">START</div>
+          <div class="info">
+            <div class="city">Ruth, MS</div>
+            <div class="description">3231 Mallalieu Dr SE - Starting Point</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">70 mi</div>
+          <div class="info">
+            <div class="city">Jackson, MS</div>
+            <div class="description">Take I-20 West</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">115 mi</div>
+          <div class="info">
+            <div class="city">Vicksburg, MS</div>
+            <div class="description">Continue on I-20 West</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">230 mi</div>
+          <div class="info">
+            <div class="city">Shreveport, LA</div>
+            <div class="description">Cross into Louisiana</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">430 mi</div>
+          <div class="info">
+            <div class="city">Dallas, TX</div>
+            <div class="description">Major city - Continue west on I-30</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">465 mi</div>
+          <div class="info">
+            <div class="city">Fort Worth, TX</div>
+            <div class="description">Continue on I-30/I-20 then US-287</div>
+          </div>
+        </div>
+        <div class="route-item fuel-stop">
+          <div class="milestone">⛽ 600 mi</div>
+          <div class="info">
+            <div class="city">FUEL STOP #1 - Amarillo, TX Area</div>
+            <div class="description">Fill up: ~60 gallons | Cost: ~$223 | OVERNIGHT STOP RECOMMENDED</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">700 mi</div>
+          <div class="info">
+            <div class="city">Amarillo, TX (RECOMMENDED OVERNIGHT)</div>
+            <div class="description">Perfect halfway point - I-40 West. Budget hotels available!</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">875 mi</div>
+          <div class="info">
+            <div class="city">Tucumcari, NM</div>
+            <div class="description">I-40 West continues through New Mexico</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">1055 mi</div>
+          <div class="info">
+            <div class="city">Albuquerque, NM</div>
+            <div class="description">Take I-25 North at "Big I" interchange</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">1110 mi</div>
+          <div class="info">
+            <div class="city">Santa Fe, NM</div>
+            <div class="description">Continue on I-25 North</div>
+          </div>
+        </div>
+        <div class="route-item fuel-stop">
+          <div class="milestone">⛽ 1200 mi</div>
+          <div class="info">
+            <div class="city">FUEL STOP #2 - Raton, NM / Trinidad, CO</div>
+            <div class="description">Fill up: ~60 gallons | Cost: ~$223 | 200 miles to destination</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">1265 mi</div>
+          <div class="info">
+            <div class="city">Trinidad, CO</div>
+            <div class="description">Welcome to Colorado!</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">1330 mi</div>
+          <div class="info">
+            <div class="city">Pueblo, CO</div>
+            <div class="description">Continue on I-25 North</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">1375 mi</div>
+          <div class="info">
+            <div class="city">Colorado Springs, CO</div>
+            <div class="description">Near final destination</div>
+          </div>
+        </div>
+        <div class="route-item">
+          <div class="milestone">🏁 1400 mi</div>
+          <div class="info">
+            <div class="city">Peyton, CO - DESTINATION!</div>
+            <div class="description">10231 Hidden Park Way - You made it!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hotels" class="tab-content">
+      <h2>🏨 Recommended Overnight Stop: Amarillo, TX</h2>
+      <div class="info-box">
+        <h3>Why Amarillo?</h3>
+        <p><strong>Perfect halfway point:</strong> Approximately 700 miles from Ruth, MS and 700 miles to Peyton, CO</p>
+        <p><strong>Convenient location:</strong> Right off I-40 with many affordable hotel options</p>
+        <p><strong>Amenities:</strong> Restaurants, gas stations, and attractions nearby</p>
+      </div>
+
+      <h3>Budget-Friendly Hotels</h3>
+      <div class="hotel-card">
+        <div class="hotel-name">Hotel Panhandle TX I-40</div>
+        <div class="hotel-price">$50-70/night</div>
+        <div class="hotel-location">📍 Just off I-40, 30 miles NE of Amarillo<br>✓ Pet-friendly ✓ Free WiFi ✓ Basic amenities</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Atrea Inn Amarillo</div>
+        <div class="hotel-price">$57-75/night</div>
+        <div class="hotel-location">📍 2035 Paramount Blvd, Amarillo<br>✓ Close to I-40 ✓ Good reviews ✓ Clean rooms</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Motel 6 Amarillo West</div>
+        <div class="hotel-price">$60-80/night</div>
+        <div class="hotel-location">📍 2032 Paramount Blvd, Amarillo<br>✓ Pet-friendly ✓ Kids stay free ✓ Free morning coffee ✓ Pool</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-name">Sleep Inn & Suites West Medical Center</div>
+        <div class="hotel-price">$75-90/night</div>
+        <div class="hotel-location">📍 Near I-40 West, Amarillo<br>✓ Pool & hot tub ✓ Complimentary breakfast ✓ Excellent service</div>
+      </div>
+
+      <h3 style="margin-top: 30px;">Things to See in Amarillo</h3>
+      <div class="info-box">
+        <p><strong>🎨 Cadillac Ranch:</strong> Famous art installation with buried Cadillacs (free to visit!)</p>
+        <p><strong>🥩 Big Texan Steak Ranch:</strong> Home of the famous 72 oz steak challenge</p>
+        <p><strong>🏞️ Palo Duro Canyon State Park:</strong> "Grand Canyon of Texas" - about 30 minutes from Amarillo</p>
+      </div>
+    </div>
+
+    <div id="tracker" class="tab-content">
+      <h2>📍 Trip Progress Tracker</h2>
+      <div class="info-box">
+        <h3>How to Use This Tracker</h3>
+        <p>Enter your current mileage from the start point to see your progress, fuel remaining, and next stop information.</p>
+      </div>
+
+      <label for="currentMiles"><strong>Current Miles from Ruth, MS:</strong></label>
+      <input type="number" id="currentMiles" placeholder="Enter miles traveled (0-1400)" min="0" max="1400" value="0">
+      <button onclick="updateProgress()">Update Progress</button>
+      <button onclick="resetProgress()">Reset</button>
+
+      <div id="progressDisplay" style="margin-top: 20px;">
+        <h3>Trip Progress</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar" style="width: 0%">0%</div>
+        </div>
+        <div id="progressStats" class="calculator-result">
+          <p><strong>Miles Traveled:</strong> <span id="milesTraveled">0</span> miles</p>
+          <p><strong>Miles Remaining:</strong> <span id="milesRemaining">1,400</span> miles</p>
+          <p><strong>Estimated Fuel Remaining:</strong> <span id="fuelRemaining">60</span> gallons</p>
+          <p><strong>Miles Until Next Fuel Stop:</strong> <span id="milesUntilFuel">600</span> miles</p>
+          <p><strong>Next Major City:</strong> <span id="nextCity">Jackson, MS</span></p>
+          <p><strong>Estimated Fuel Cost Remaining:</strong> $<span id="fuelCostRemaining">521</span></p>
+        </div>
+      </div>
+
+      <div class="warning-box" style="margin-top: 20px;">
+        <h3>⚠️ Safety Reminders</h3>
+        <p>• Take breaks every 2-3 hours or 100-150 miles</p>
+        <p>• Don't let fuel tank drop below 1/4 full</p>
+        <p>• Stay hydrated and well-rested</p>
+        <p>• Check tire pressure and truck condition regularly</p>
+        <p>• Keep emergency contact numbers handy</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(e, tabName) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      const navTabs = document.querySelectorAll('.nav-tab');
+      navTabs.forEach(nav => nav.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      e.target.classList.add('active');
+    }
+
+    function updateProgress() {
+      const currentMiles = parseFloat(document.getElementById('currentMiles').value) || 0;
+
+      if (currentMiles < 0 || currentMiles > 1400) {
+        alert('Please enter a value between 0 and 1400 miles');
+        return;
+      }
+
+      const totalDistance = 1400;
+      const progressPercent = (currentMiles / totalDistance) * 100;
+      const milesRemaining = totalDistance - currentMiles;
+
+      const mpg = 10;
+      const startingFuel = 60;
+      let fuelRemaining = startingFuel - (currentMiles % 600) / mpg;
+      if (fuelRemaining < 0) fuelRemaining = 0;
+
+      let milesUntilFuel;
+      if (currentMiles < 600) {
+        milesUntilFuel = 600 - currentMiles;
+      } else if (currentMiles < 1200) {
+        milesUntilFuel = 1200 - currentMiles;
+      } else {
+        milesUntilFuel = 0;
+      }
+
+      const cities = [
+        { miles: 70, name: "Jackson, MS" },
+        { miles: 230, name: "Shreveport, LA" },
+        { miles: 430, name: "Dallas, TX" },
+        { miles: 600, name: "Amarillo, TX (FUEL STOP)" },
+        { miles: 875, name: "Tucumcari, NM" },
+        { miles: 1055, name: "Albuquerque, NM" },
+        { miles: 1200, name: "Raton, NM (FUEL STOP)" },
+        { miles: 1330, name: "Pueblo, CO" },
+        { miles: 1400, name: "Peyton, CO (DESTINATION!)" }
+      ];
+
+      let nextCity = "Peyton, CO (DESTINATION!)";
+      for (let city of cities) {
+        if (currentMiles < city.miles) {
+          nextCity = city.name;
+          break;
         }
+      }
 
-        function updateProgress() {
-            const currentMiles = parseFloat(document.getElementById('currentMiles').value) || 0;
+      const avgGasPrice = 3.72;
+      const fuelNeededToFinish = milesRemaining / mpg;
+      const fuelCostRemaining = (fuelNeededToFinish * avgGasPrice).toFixed(2);
 
-            if (currentMiles < 0 || currentMiles > 1400) {
-                alert('Please enter a value between 0 and 1400 miles');
-                return;
-            }
+      document.getElementById('progressBar').style.width = progressPercent + '%';
+      document.getElementById('progressBar').textContent = progressPercent.toFixed(1) + '%';
+      document.getElementById('milesTraveled').textContent = currentMiles.toFixed(0);
+      document.getElementById('milesRemaining').textContent = milesRemaining.toFixed(0);
+      document.getElementById('fuelRemaining').textContent = fuelRemaining.toFixed(1);
+      document.getElementById('milesUntilFuel').textContent =
+        milesUntilFuel > 0 ? milesUntilFuel.toFixed(0) : 'No more fuel stops needed!';
+      document.getElementById('nextCity').textContent = nextCity;
+      document.getElementById('fuelCostRemaining').textContent = fuelCostRemaining;
+    }
 
-            // Calculate progress
-            const totalDistance = 1400;
-            const progressPercent = (currentMiles / totalDistance) * 100;
-            const milesRemaining = totalDistance - currentMiles;
+    function resetProgress() {
+      document.getElementById('currentMiles').value = 0;
+      updateProgress();
+    }
 
-            // Calculate fuel
-            const mpg = 10;
-            const tankCapacity = 60;
-            const startingFuel = 60;
-            const fuelUsed = currentMiles / mpg;
-            let fuelRemaining = startingFuel - (currentMiles % 600) / mpg;
-            if (fuelRemaining < 0) fuelRemaining = 0;
-
-            // Determine next fuel stop
-            let milesUntilFuel;
-            if (currentMiles < 600) {
-                milesUntilFuel = 600 - currentMiles;
-            } else if (currentMiles < 1200) {
-                milesUntilFuel = 1200 - currentMiles;
-            } else {
-                milesUntilFuel = 0;
-            }
-
-            // Determine next major city
-            const cities = [
-                {miles: 70, name: "Jackson, MS"},
-                {miles: 230, name: "Shreveport, LA"},
-                {miles: 430, name: "Dallas, TX"},
-                {miles: 600, name: "Amarillo, TX (FUEL STOP)"},
-                {miles: 875, name: "Tucumcari, NM"},
-                {miles: 1055, name: "Albuquerque, NM"},
-                {miles: 1200, name: "Raton, NM (FUEL STOP)"},
-                {miles: 1330, name: "Pueblo, CO"},
-                {miles: 1400, name: "Peyton, CO (DESTINATION!)"}
-            ];
-
-            let nextCity = "Peyton, CO (DESTINATION!)";
-            for (let city of cities) {
-                if (currentMiles < city.miles) {
-                    nextCity = city.name;
-                    break;
-                }
-            }
-
-            // Calculate remaining fuel cost
-            const avgGasPrice = 3.72;
-            const fuelNeededToFinish = milesRemaining / mpg;
-            const fuelCostRemaining = (fuelNeededToFinish * avgGasPrice).toFixed(2);
-
-            // Update display
-            document.getElementById('progressBar').style.width = progressPercent + '%';
-            document.getElementById('progressBar').textContent = progressPercent.toFixed(1) + '%';
-            document.getElementById('milesTraveled').textContent = currentMiles.toFixed(0);
-            document.getElementById('milesRemaining').textContent = milesRemaining.toFixed(0);
-            document.getElementById('fuelRemaining').textContent = fuelRemaining.toFixed(1);
-            document.getElementById('milesUntilFuel').textContent = milesUntilFuel > 0 ? milesUntilFuel.toFixed(0) : 'No more fuel stops needed!';
-            document.getElementById('nextCity').textContent = nextCity;
-            document.getElementById('fuelCostRemaining').textContent = fuelCostRemaining;
-        }
-
-        function resetProgress() {
-            document.getElementById('currentMiles').value = 0;
-            updateProgress();
-        }
-
-        // Initialize on page load
-        window.onload = function() {
-            updateProgress();
-        };
-    </script>
+    window.onload = function() {
+      updateProgress();
+    };
+  </script>
 </body>
 </html>
