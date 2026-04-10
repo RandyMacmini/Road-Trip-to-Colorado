@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;U-Haul Trip Planner: Ruth, MS to Peyton, CO&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1200px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 60px rgba(0,0,0,0.3);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2.5em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-shadow: 2px 2px 4px rgba(0,0,0,0.2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.95;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-tabs {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 3px solid #dee2e6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-tab {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #495057;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-tab:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-tab.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 3px solid #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: -3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab-content {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>animation: fadeIn 0.5s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab-content.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>from { opacity: 0; transform: translateY(10px); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.summary-grid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.summary-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 5px 15px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.summary-card h3 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.summary-card .value {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-list {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateX(5px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item .milestone {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-right: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item .info {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item .city {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.route-item .description {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.fuel-stop {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 5px solid #c7365f;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.fuel-stop .milestone {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #c7365f;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hotel-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hotel-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hotel-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.3em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hotel-price {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #28a745;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hotel-location {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.info-box {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e7f3ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #2196F3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.info-box h3 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #2196F3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.warning-box {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff3cd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #ffc107;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.warning-box h3 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #856404;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.progress-fill {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: width 1s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="number"] {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #dee2e6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.calculator-result {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #d4edda;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #28a745;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gas-prices {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gas-price-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #dee2e6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.state-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.price {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.8em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 1.8em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.summary-grid {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.nav-tab {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 15px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;🚚 U-Haul Trip Planner&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Ruth, MS → Peyton, CO&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="nav-tabs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="nav-tab active" onclick="showTab(event, 'overview')"&gt;📊 Overview&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="nav-tab" onclick="showTab(event, 'route')"&gt;🗺️ Route&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="nav-tab" onclick="showTab(event, 'hotels')"&gt;🏨 Hotels&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="nav-tab" onclick="showTab(event, 'tracker')"&gt;📍 Tracker&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="overview" class="tab-content active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Trip Summary&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="summary-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="summary-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Total Distance&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value"&gt;1,400 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="summary-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Drive Time&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value"&gt;22-24 hrs&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="summary-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Fuel Cost&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value"&gt;$521&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="summary-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Fill-ups Needed&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value"&gt;2&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="info-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🚛 Vehicle Details&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Type:&lt;/strong&gt; 26-foot U-Haul Truck&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Tank Capacity:&lt;/strong&gt; 60 gallons&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Fuel Efficiency:&lt;/strong&gt; 10 MPG&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Cargo Weight:&lt;/strong&gt; 2,000 lbs (tightly packed boxes and furniture)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Fuel Type:&lt;/strong&gt; Regular Unleaded&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="warning-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;⚠️ Important Notes&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Plan for 2 overnight stays or split into 2 very long days (11 hours each)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Recommended overnight stop: &lt;strong&gt;Amarillo, TX&lt;/strong&gt; (perfect halfway point)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Gas prices vary by state - see gas prices in Route tab&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Budget hotels available in Amarillo for $50-90/night&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Allow extra time for food, rest stops, and potential traffic&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Recommended Route&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="route-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="padding: 10px; font-weight: 600;"&gt;I-59 N → I-20 W → I-30 W → I-40 W → I-25 N&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Current Gas Prices (April 2026)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gas-prices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;Mississippi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$3.75&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;Louisiana&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$3.79&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;Texas&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$3.77&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;Oklahoma&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$3.27&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;New Mexico&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$4.01&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gas-price-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="state-name"&gt;Colorado&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="price"&gt;$3.82&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="route" class="tab-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Detailed Route &amp; Fuel Stops&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="route-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;START&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Ruth, MS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;3231 Mallalieu Dr SE - Starting Point&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;70 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Jackson, MS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Take I-20 West&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;115 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Vicksburg, MS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Continue on I-20 West&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;230 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Shreveport, LA&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Cross into Louisiana&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;430 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Dallas, TX&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Major city - Continue west on I-30&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;465 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Fort Worth, TX&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Continue on I-30/I-20 then US-287&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item fuel-stop"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;⛽ 600 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;FUEL STOP #1 - Amarillo, TX Area&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Fill up: ~60 gallons | Cost: ~$223 | OVERNIGHT STOP RECOMMENDED&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;700 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Amarillo, TX (RECOMMENDED OVERNIGHT)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Perfect halfway point - I-40 West. Budget hotels available!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;875 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Tucumcari, NM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;I-40 West continues through New Mexico&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;1055 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Albuquerque, NM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Take I-25 North at "Big I" interchange&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;1110 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Santa Fe, NM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Continue on I-25 North&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item fuel-stop"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;⛽ 1200 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;FUEL STOP #2 - Raton, NM / Trinidad, CO&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Fill up: ~60 gallons | Cost: ~$223 | 200 miles to destination&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;1265 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Trinidad, CO&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Welcome to Colorado!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;1330 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Pueblo, CO&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Continue on I-25 North&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;1375 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Colorado Springs, CO&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;Near final destination&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="route-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="milestone"&gt;🏁 1400 mi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="city"&gt;Peyton, CO - DESTINATION!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="description"&gt;10231 Hidden Park Way - You made it!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="hotels" class="tab-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;🏨 Recommended Overnight Stop: Amarillo, TX&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="info-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Why Amarillo?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Perfect halfway point:&lt;/strong&gt; Approximately 700 miles from Ruth, MS and 700 miles to Peyton, CO&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Convenient location:&lt;/strong&gt; Right off I-40 with many affordable hotel options&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Amenities:&lt;/strong&gt; Restaurants, gas stations, and attractions nearby&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Budget-Friendly Hotels&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hotel-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-name"&gt;Hotel Panhandle TX I-40&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-price"&gt;$50-70/night&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-location"&gt;📍 Just off I-40, 30 miles NE of Amarillo&lt;br&gt;✓ Pet-friendly ✓ Free WiFi ✓ Basic amenities&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hotel-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-name"&gt;Atrea Inn Amarillo&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-price"&gt;$57-75/night&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-location"&gt;📍 2035 Paramount Blvd, Amarillo&lt;br&gt;✓ Close to I-40 ✓ Good reviews ✓ Clean rooms&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hotel-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-name"&gt;Motel 6 Amarillo West&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-price"&gt;$60-80/night&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-location"&gt;📍 2032 Paramount Blvd, Amarillo&lt;br&gt;✓ Pet-friendly ✓ Kids stay free ✓ Free morning coffee ✓ Pool&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hotel-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-name"&gt;Sleep Inn &amp; Suites West Medical Center&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-price"&gt;$75-90/night&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hotel-location"&gt;📍 Near I-40 West, Amarillo&lt;br&gt;✓ Pool &amp; hot tub ✓ Complimentary breakfast ✓ Excellent service&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 style="margin-top: 30px;"&gt;Things to See in Amarillo&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="info-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;🎨 Cadillac Ranch:&lt;/strong&gt; Famous art installation with buried Cadillacs (free to visit!)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;🥩 Big Texan Steak Ranch:&lt;/strong&gt; Home of the famous 72 oz steak challenge&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;🏞️ Palo Duro Canyon State Park:&lt;/strong&gt; "Grand Canyon of Texas" - about 30 minutes from Amarillo&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="tracker" class="tab-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;📍 Trip Progress Tracker&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="info-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;How to Use This Tracker&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Enter your current mileage from the start point to see your progress, fuel remaining, and next stop information.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="currentMiles"&gt;&lt;strong&gt;Current Miles from Ruth, MS:&lt;/strong&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="number" id="currentMiles" placeholder="Enter miles traveled (0-1400)" min="0" max="1400" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="updateProgress()"&gt;Update Progress&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="resetProgress()"&gt;Reset&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="progressDisplay" style="margin-top: 20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Trip Progress&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="progress-fill" id="progressBar" style="width: 0%"&gt;0%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="progressStats" class="calculator-result"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Miles Traveled:&lt;/strong&gt; &lt;span id="milesTraveled"&gt;0&lt;/span&gt; miles&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Miles Remaining:&lt;/strong&gt; &lt;span id="milesRemaining"&gt;1,400&lt;/span&gt; miles&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Estimated Fuel Remaining:&lt;/strong&gt; &lt;span id="fuelRemaining"&gt;60&lt;/span&gt; gallons&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Miles Until Next Fuel Stop:&lt;/strong&gt; &lt;span id="milesUntilFuel"&gt;600&lt;/span&gt; miles&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Next Major City:&lt;/strong&gt; &lt;span id="nextCity"&gt;Jackson, MS&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Estimated Fuel Cost Remaining:&lt;/strong&gt; $&lt;span id="fuelCostRemaining"&gt;521&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="warning-box" style="margin-top: 20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;⚠️ Safety Reminders&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Take breaks every 2-3 hours or 100-150 miles&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Don't let fuel tank drop below 1/4 full&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Stay hydrated and well-rested&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Check tire pressure and truck condition regularly&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;• Keep emergency contact numbers handy&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showTab(e, tabName) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const tabs = document.querySelectorAll('.tab-content');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tabs.forEach(tab =&gt; tab.classList.remove('active'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const navTabs = document.querySelectorAll('.nav-tab');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>navTabs.forEach(nav =&gt; nav.classList.remove('active'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById(tabName).classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>e.target.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateProgress() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMiles = parseFloat(document.getElementById('currentMiles').value) || 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (currentMiles &lt; 0 || currentMiles &gt; 1400) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert('Please enter a value between 0 and 1400 miles');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const totalDistance = 1400;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const progressPercent = (currentMiles / totalDistance) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const milesRemaining = totalDistance - currentMiles;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const mpg = 10;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const startingFuel = 60;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let fuelRemaining = startingFuel - (currentMiles % 600) / mpg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (fuelRemaining &lt; 0) fuelRemaining = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let milesUntilFuel;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (currentMiles &lt; 600) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>milesUntilFuel = 600 - currentMiles;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else if (currentMiles &lt; 1200) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>milesUntilFuel = 1200 - currentMiles;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>milesUntilFuel = 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cities = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 70, name: "Jackson, MS" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 230, name: "Shreveport, LA" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 430, name: "Dallas, TX" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 600, name: "Amarillo, TX (FUEL STOP)" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 875, name: "Tucumcari, NM" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 1055, name: "Albuquerque, NM" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 1200, name: "Raton, NM (FUEL STOP)" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 1330, name: "Pueblo, CO" },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ miles: 1400, name: "Peyton, CO (DESTINATION!)" }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let nextCity = "Peyton, CO (DESTINATION!)";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for (let city of cities) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (currentMiles &lt; city.miles) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>nextCity = city.name;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>break;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const avgGasPrice = 3.72;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const fuelNeededToFinish = milesRemaining / mpg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const fuelCostRemaining = (fuelNeededToFinish * avgGasPrice).toFixed(2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('progressBar').style.width = progressPercent + '%';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('progressBar').textContent = progressPercent.toFixed(1) + '%';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('milesTraveled').textContent = currentMiles.toFixed(0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('milesRemaining').textContent = milesRemaining.toFixed(0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('fuelRemaining').textContent = fuelRemaining.toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('milesUntilFuel').textContent =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>milesUntilFuel &gt; 0 ? milesUntilFuel.toFixed(0) : 'No more fuel stops needed!';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('nextCity').textContent = nextCity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('fuelCostRemaining').textContent = fuelCostRemaining;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetProgress() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('currentMiles').value = 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateProgress();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onload = function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateProgress();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
